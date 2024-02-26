@@ -70,6 +70,11 @@ class _MainPageState extends State<MainPage> {
         ),
       ),
       sideBar: SideBar(
+        iconColor: Colors.deepPurple,
+        textStyle: const TextStyle(
+          color: Colors.deepPurple,
+          fontSize: 12,
+        ),
         items: const [
           AdminMenuItem(
             title: 'Painel',
