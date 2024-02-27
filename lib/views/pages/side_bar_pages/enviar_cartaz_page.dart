@@ -3,6 +3,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:shop_fusion_web_admin/views/pages/side_bar_pages/widgets/box_cartazes.dart';
 
 class EnviarCartazPage extends StatefulWidget {
   const EnviarCartazPage({super.key});
@@ -131,6 +132,23 @@ class _EnviarCartazPageState extends State<EnviarCartazPage> {
               ),
             ],
           ),
+          const Divider(
+            color: Colors.grey,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              alignment: Alignment.topLeft,
+              child: const Text(
+                'Cartazes',
+                style: TextStyle(
+                  fontSize: 36,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+          const BoxCartazes(),
         ],
       ),
     );

@@ -3,6 +3,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:shop_fusion_web_admin/views/pages/side_bar_pages/widgets/box_categoria.dart';
 
 class CategoriasPage extends StatefulWidget {
   const CategoriasPage({super.key});
@@ -58,12 +59,13 @@ class _CategoriasPageState extends State<CategoriasPage> {
 
       await _firestore.collection('categorias').doc(fileName).set({
         'imagem': imageUrl,
-        'nomeCategoria': categoryName,
+        'nome_categoria': categoryName,
       }).whenComplete(() {
         EasyLoading.dismiss();
 
         setState(() {
           _image = null;
+          _formKey.currentState!.reset();
         });
       });
     } else {}
@@ -161,6 +163,23 @@ class _CategoriasPageState extends State<CategoriasPage> {
                 ),
               ],
             ),
+            const Divider(
+              color: Colors.grey,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                alignment: Alignment.topLeft,
+                child: const Text(
+                  'Categorias',
+                  style: TextStyle(
+                    fontSize: 36,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+            const BoxCategoria(),
           ],
         ),
       ),
