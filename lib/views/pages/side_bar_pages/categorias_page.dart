@@ -40,9 +40,12 @@ class _CategoriasPageState extends State<CategoriasPage> {
   }
 
   Future<String> _enviarCartazDaCategoriaAoStorage(dynamic image) async {
-    Reference ref = _storage.ref().child('imagensCategoria').child(fileName!);
+    Reference ref = _storage.ref().child('imagem_categoria').child(fileName!);
 
-    UploadTask uploadTask = ref.putData(image);
+    UploadTask uploadTask = ref.putData(
+      image,
+      SettableMetadata(contentType: 'image/jpg'),
+    );
 
     TaskSnapshot snapshot = await uploadTask;
 
@@ -99,6 +102,7 @@ class _CategoriasPageState extends State<CategoriasPage> {
                   child: Column(
                     children: [
                       Container(
+                        clipBehavior: Clip.hardEdge,
                         height: 140,
                         width: 140,
                         decoration: BoxDecoration(

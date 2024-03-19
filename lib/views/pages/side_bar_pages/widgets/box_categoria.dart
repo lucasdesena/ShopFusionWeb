@@ -43,11 +43,13 @@ class BoxCategoria extends StatelessWidget {
                   ),
                   child: Column(
                     children: [
+                      const SizedBox(height: 10),
                       SizedBox(
                         height: 100,
                         width: 100,
                         child: Image.network(
                           categoria['imagem'],
+                          fit: BoxFit.cover,
                         ),
                       ),
                       Card(

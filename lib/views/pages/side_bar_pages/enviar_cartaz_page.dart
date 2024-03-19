@@ -36,9 +36,12 @@ class _EnviarCartazPageState extends State<EnviarCartazPage> {
   }
 
   Future<String> _enviarImagemAoStorage(dynamic image) async {
-    Reference ref = _storage.ref().child('Cartazes').child(fileName!);
+    Reference ref = _storage.ref().child('cartazes').child(fileName!);
 
-    UploadTask uploadTask = ref.putData(image);
+    UploadTask uploadTask = ref.putData(
+      image,
+      SettableMetadata(contentType: 'image/jpg'),
+    );
 
     TaskSnapshot snapshot = await uploadTask;
 
@@ -90,6 +93,7 @@ class _EnviarCartazPageState extends State<EnviarCartazPage> {
                 child: Column(
                   children: [
                     Container(
+                      clipBehavior: Clip.hardEdge,
                       height: 140,
                       width: 140,
                       decoration: BoxDecoration(
